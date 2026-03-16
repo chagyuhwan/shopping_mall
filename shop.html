@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>카테고리 - KCSHOP</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+    <style>
+        .shop-page { padding: 48px 24px 80px; background: #f8f9fa; min-height: 60vh; }
+        .shop-header { text-align: center; margin-bottom: 48px; }
+        .shop-title { font-size: 1.5rem; font-weight: 700; color: #1a1a1a; }
+        .shop-subtitle { font-size: 0.95rem; color: #666; margin-top: 8px; }
+        .shop-products { max-width: 1500px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px; }
+        .shop-products .product-card { background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,0.06); transition: box-shadow 0.2s; }
+        .shop-products .product-card:hover { box-shadow: 0 4px 24px rgba(0,0,0,0.1); }
+        .shop-products .product-image { aspect-ratio: 1; background: #e8e8e8; position: relative; }
+        .shop-products .product-image img { width: 100%; height: 100%; object-fit: cover; }
+        .shop-products .product-info { padding: 20px 16px; }
+        .shop-products .product-name { font-size: 0.95rem; font-weight: 600; margin-bottom: 8px; }
+        .shop-products .price-row { display: flex; align-items: center; gap: 8px; }
+        .shop-products .original-price { font-size: 0.9rem; color: #999; text-decoration: line-through; }
+        .shop-products .sale-price { font-size: 1rem; font-weight: 700; }
+        .shop-products .product-desc { font-size: 0.85rem; color: #666; margin-top: 8px; }
+        .shop-empty { text-align: center; padding: 80px 20px; color: #999; }
+        @media (max-width: 1200px) { .shop-products { grid-template-columns: repeat(3, 1fr); } }
+        @media (max-width: 768px) { .shop-products { grid-template-columns: repeat(2, 1fr); gap: 20px; } .shop-page { padding: 32px 16px 60px; } }
+        @media (max-width: 480px) { .shop-products { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+    <div class="announcement-bar">
+        <div class="announcement-slider">
+            <span>2025 AUTUMN COLLECTION OPEN!</span>
+            <span>NEW 5% PRODUCT</span>
+            <span>SEASON OFF SALE</span>
+        </div>
+    </div>
+
+    <header class="header">
+        <nav class="nav-main">
+            <button class="nav-toggle" type="button" aria-label="메뉴">☰</button>
+            <div class="mobile-menu-backdrop" id="mobileMenuBackdrop"></div>
+            <div class="nav-left" id="navMenu">
+                <button type="button" class="mobile-menu-close" id="mobileMenuClose" aria-label="메뉴 닫기"><img src="images/x.png" alt="닫기"></button>
+                <a href="shop.html?group=best">BEST</a>
+                <div class="nav-dropdown">
+                    <a href="#" class="nav-dropdown-trigger">TOP</a>
+                    <div class="nav-dropdown-menu">
+                        <a href="shop.html?category=반팔%26민소매">반팔&민소매</a>
+                        <a href="shop.html?category=니트%26폴라">니트&폴라</a>
+                        <a href="shop.html?category=맨투맨%26후드">맨투맨&후드</a>
+                        <a href="shop.html?category=셔츠%26남방">셔츠&남방</a>
+                        <a href="shop.html?category=긴팔">긴팔</a>
+                    </div>
+                </div>
+                <div class="nav-dropdown">
+                    <a href="#" class="nav-dropdown-trigger">PANTS</a>
+                    <div class="nav-dropdown-menu">
+                        <a href="shop.html?category=와이드팬츠">와이드팬츠</a>
+                        <a href="shop.html?category=밴딩팬츠">밴딩팬츠</a>
+                        <a href="shop.html?category=슬랙스">슬랙스</a>
+                        <a href="shop.html?category=면바지">면바지</a>
+                    </div>
+                </div>
+                <div class="nav-dropdown">
+                    <a href="#" class="nav-dropdown-trigger">OUTER</a>
+                    <div class="nav-dropdown-menu">
+                        <a href="shop.html?category=자켓">자켓</a>
+                        <a href="shop.html?category=가디건">가디건</a>
+                        <a href="shop.html?category=코트">코트</a>
+                        <a href="shop.html?category=패딩%2F점퍼">패딩/점퍼</a>
+                        <a href="shop.html?category=패딩조끼">패딩조끼</a>
+                    </div>
+                </div>
+            </div>
+            <a href="index.html" class="logo">KCSHOP</a>
+            <div class="nav-right">
+                <a href="#" id="navLogout" class="nav-desktop-only" style="display: none;">LOGOUT</a>
+                <a href="#" class="find-icon" id="findOpen" aria-label="검색"><img src="images/find.png" alt="검색"></a>
+                <a href="mypage.html" class="user-icon" id="userIcon"><img src="images/my.png" alt="마이페이지"></a>
+                <a href="cart.html" class="cart-wrapper"><img src="images/cart.png" alt="장바구니"><span class="cart-count" id="cartCount">0</span></a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="shop-page">
+        <div class="shop-header">
+            <h1 class="shop-title" id="shopTitle">상품 목록</h1>
+            <p class="shop-subtitle" id="shopSubtitle"></p>
+        </div>
+        <div id="shopProducts" class="shop-products">
+            <p class="products-loading">상품을 불러오는 중...</p>
+        </div>
+        <div id="shopEmpty" class="shop-empty" style="display: none;">
+            <p>해당 카테고리에 등록된 상품이 없습니다.</p>
+            <a href="index.html" style="display: inline-block; margin-top: 16px; color: #2563eb; text-decoration: none;">메인으로 돌아가기</a>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-main">
+            <div class="footer-inner">
+                <div class="footer-col footer-cs">
+                    <div class="footer-block">
+                        <h3 class="footer-title">C/S CENTER</h3>
+                        <p class="footer-tel">T. {{SITE_TEL}}</p>
+                        <p class="footer-hours">{{SITE_HOURS}}</p>
+                    </div>
+                    <div class="footer-block">
+                        <h3 class="footer-title">ACCOUNT</h3>
+                        <p class="footer-depositor">예금주 : (주) KCSHOP</p>
+                        <p class="footer-account">{{SITE_ACCOUNT}}</p>
+                    </div>
+                </div>
+                <div class="footer-col footer-company">
+                    <h2 class="footer-logo">KCSHOP</h2>
+                    <div class="footer-info">
+                        <p>COMPANY: (주)케이씨샵</p>
+                        <p>OWNER: {{SITE_OWNER}} TEL: {{SITE_OWNER_TEL}}</p>
+                        <p>ADDRESS: {{SITE_ADDRESS}}</p>
+                    </div>
+                </div>
+                <div class="footer-col footer-return">
+                    <div class="footer-block">
+                        <h3 class="footer-title">교환/반품주소</h3>
+                        <p>{{SITE_RETURN_ADDRESS}}</p>
+                    </div>
+                    <div class="footer-block">
+                        <h3 class="footer-title">SNS</h3>
+                        <p class="footer-sns">{{SITE_SNS}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="footer-links">
+                <a href="#">회사소개</a>
+                <a href="#">이용약관</a>
+                <a href="#">개인정보처리방침</a>
+                <a href="#">이용안내</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        (async function() {
+            const params = new URLSearchParams(location.search);
+            const category = params.get('category') || '';
+            const group = params.get('group') || '';
+
+            const titleEl = document.getElementById('shopTitle');
+            const subtitleEl = document.getElementById('shopSubtitle');
+            const productsEl = document.getElementById('shopProducts');
+            const emptyEl = document.getElementById('shopEmpty');
+
+            const categoryLabels = {
+                'best': 'BEST',
+                '반팔&민소매': '반팔&민소매',
+                '니트&폴라': '니트&폴라',
+                '맨투맨&후드': '맨투맨&후드',
+                '셔츠&남방': '셔츠&남방',
+                '긴팔': '긴팔',
+                '와이드팬츠': '와이드팬츠',
+                '밴딩팬츠': '밴딩팬츠',
+                '슬랙스': '슬랙스',
+                '면바지': '면바지',
+                '자켓': '자켓',
+                '가디건': '가디건',
+                '코트': '코트',
+                '패딩/점퍼': '패딩/점퍼',
+                '패딩조끼': '패딩조끼'
+            };
+
+            const displayName = category ? (categoryLabels[category] || category) : (group === 'best' ? 'BEST' : '상품 목록');
+            titleEl.textContent = displayName;
+            subtitleEl.textContent = category ? `${displayName} 카테고리 상품입니다.` : (group === 'best' ? '인기 베스트 상품을 만나보세요.' : '');
+
+            document.title = displayName + ' - KCSHOP';
+
+            try {
+                let url = '/api/products?';
+                if (category) url += 'category=' + encodeURIComponent(category);
+                else if (group) url += 'group=' + encodeURIComponent(group);
+                const res = await fetch(url, { credentials: 'include' });
+                const products = res.ok ? await res.json() : [];
+                if (!Array.isArray(products)) throw new Error();
+
+                if (products.length === 0) {
+                    productsEl.style.display = 'none';
+                    emptyEl.style.display = 'block';
+                    return;
+                }
+
+                function esc(s) {
+                    if (!s) return '';
+                    return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+                }
+                function getBadges(p) {
+                    const b = [];
+                    if (p.badgeNew) b.push('<span class="product-badge-sticker badge-new">신상품</span>');
+                    if (p.badgeBest) b.push('<span class="product-badge-sticker badge-best">베스트</span>');
+                    if (p.badgeMd) b.push('<span class="product-badge-sticker badge-md">MD추천</span>');
+                    if (p.badgeRush) b.push('<span class="product-badge-sticker badge-rush">주문폭주</span>');
+                    if (p.badgeToday) b.push('<span class="product-badge-sticker badge-today">오늘출발</span>');
+                    if (p.badgeLimit) b.push('<span class="product-badge-sticker badge-limit">한정</span>');
+                    return b.length ? '<span class="product-badge-stickers">' + b.join('') + '</span>' : '';
+                }
+
+                productsEl.innerHTML = products.map(p => {
+                    const soldOut = (p.stock ?? 0) <= 0;
+                    const imgUrl = p.image ? p.image.replace('w=800', 'w=400') : '';
+                    const imgHtml = imgUrl ? '<img src="' + esc(imgUrl) + '" alt="' + esc(p.name) + '">' : '';
+                    const orig = (p.originalPrice || p.original_price) ? '<span class="original-price">₩' + (p.originalPrice || p.original_price).toLocaleString() + '</span>' : '';
+                    const sale = '<span class="sale-price">₩' + (p.price || 0).toLocaleString() + '</span>';
+                    const desc = (p.summary || p.desc || '').replace(/<[^>]+>/g, ' ').trim().slice(0, 60);
+                    const badges = getBadges(p);
+                    return '<a href="product.html?id=' + p.id + '" class="product-card' + (soldOut ? ' sold-out' : '') + '">' +
+                        '<div class="product-image">' + imgHtml + '</div>' +
+                        '<div class="product-info">' +
+                        '<div class="product-name product-name-with-badges"><span class="product-name-text">' + esc(p.name) + '</span>' + badges + '</div>' +
+                        '<div class="price-row">' + orig + sale + '</div>' +
+                        (desc ? '<p class="product-desc">' + esc(desc) + '</p>' : '') +
+                        '</div></a>';
+                }).join('');
+            } catch (e) {
+                productsEl.innerHTML = '<p class="shop-empty">상품을 불러올 수 없습니다.</p>';
+            }
+
+            (async function() {
+                try {
+                    const r = await fetch('/api/cart/count', { credentials: 'include' });
+                    if (r.ok) { const d = await r.json(); document.getElementById('cartCount').textContent = d.count || 0; }
+                } catch (e) {}
+            })();
+            (async function() {
+                try {
+                    const r = await fetch('/api/me', { credentials: 'include' });
+                    const d = await r.json();
+                    if (d.success && d.user) document.getElementById('navLogout').style.display = '';
+                } catch (e) {}
+            })();
+            document.getElementById('navLogout')?.addEventListener('click', async (e) => {
+                e.preventDefault();
+                try { await fetch('/api/logout', { method: 'POST', credentials: 'include' }); location.reload(); } catch (e) { location.reload(); }
+            });
+            document.getElementById('findOpen')?.addEventListener('click', (e) => {
+                e.preventDefault();
+                window.location.href = 'index.html';
+            });
+            document.querySelectorAll('.nav-dropdown-trigger').forEach(t => {
+                t.addEventListener('click', (e) => { e.preventDefault(); t.closest('.nav-dropdown')?.classList.toggle('open'); });
+            });
+            const navToggle = document.querySelector('.nav-toggle');
+            const navMenu = document.getElementById('navMenu');
+            const backdrop = document.getElementById('mobileMenuBackdrop');
+            navToggle?.addEventListener('click', () => {
+                navMenu?.classList.toggle('mobile-open');
+                backdrop?.classList.toggle('active');
+                navToggle.textContent = navMenu?.classList.contains('mobile-open') ? '✕' : '☰';
+            });
+            backdrop?.addEventListener('click', () => {
+                navMenu?.classList.remove('mobile-open');
+                backdrop?.classList.remove('active');
+                navToggle.textContent = '☰';
+            });
+            document.querySelector('.mobile-menu-close')?.addEventListener('click', () => {
+                navMenu?.classList.remove('mobile-open');
+                backdrop?.classList.remove('active');
+                navToggle.textContent = '☰';
+            });
+        })();
+    </script>
+</body>
+</html>

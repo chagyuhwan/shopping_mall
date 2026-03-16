@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>로그인 - KCSHOP</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+    <link href="auth.css" rel="stylesheet">
+    <style>
+        .auth-divider { display: flex; align-items: center; gap: 16px; margin: 24px 0 16px; }
+        .auth-divider::before, .auth-divider::after { content: ''; flex: 1; height: 1px; background: #e0e0e0; }
+        .auth-divider span { font-size: 0.85rem; color: #999; }
+        .social-login-btns { display: flex; flex-direction: column; gap: 12px; margin-top: 16px; }
+        .social-login-btn { flex: 1; display: flex; align-items: center; justify-content: center; gap: 8px; padding: 12px 16px; border: none; border-radius: 8px; font-size: 0.95rem; font-weight: 600; cursor: pointer; text-decoration: none; transition: opacity 0.2s; }
+        .social-login-btn:hover { opacity: 0.9; }
+        .social-login-btn.naver { background: #03C75A; color: #fff; }
+        .social-login-btn.kakao { background: #FEE500; color: #191919; }
+        @media (max-width: 480px) {
+            .social-login-btns { flex-direction: column; }
+            .social-login-btn { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+    <header class="auth-header">
+        <a href="index.html" class="auth-logo">KCSHOP</a>
+    </header>
+
+    <main class="auth-main">
+        <div class="auth-box">
+            <h1 class="auth-title">로그인</h1>
+            <form id="loginForm" class="auth-form">
+                <div class="auth-field">
+                    <label for="email">아이디</label>
+                    <input type="text" id="email" name="email" required placeholder="아이디 또는 이메일" autocomplete="username">
+                </div>
+                <div class="auth-field">
+                    <label for="password">비밀번호</label>
+                    <input type="password" id="password" name="password" required placeholder="비밀번호 입력">
+                </div>
+                <p id="loginMessage" class="auth-message"></p>
+                <button type="submit" class="auth-btn">로그인</button>
+
+                <div class="auth-divider"><span>또는</span></div>
+                <div class="social-login-btns">
+                    <a href="#" class="social-login-btn naver" id="btnNaverLogin" aria-label="네이버 로그인">N 네이버 로그인</a>
+                    <a href="#" class="social-login-btn kakao" id="btnKakaoLogin" aria-label="카카오 로그인">K 카카오 로그인</a>
+                </div>
+            </form>
+            <p class="auth-link-text">아직 회원이 아니신가요? <a href="register.html">회원가입</a></p>
+            <p class="auth-link-text"><a href="forgot-password.html">비밀번호를 잊으셨나요?</a></p>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-main">
+            <div class="footer-inner">
+                <div class="footer-col footer-cs">
+                    <div class="footer-block">
+                        <h3 class="footer-title">C/S CENTER</h3>
+                        <p class="footer-tel">T. {{SITE_TEL}}</p>
+                        <p class="footer-hours">{{SITE_HOURS}}</p>
+                    </div>
+                    <div class="footer-block">
+                        <h3 class="footer-title">ACCOUNT</h3>
+                        <p class="footer-depositor">예금주 : (주) KCSHOP</p>
+                        <p class="footer-account">{{SITE_ACCOUNT}}</p>
+                    </div>
+                </div>
+                <div class="footer-col footer-company">
+                    <h2 class="footer-logo">KCSHOP</h2>
+                    <div class="footer-info">
+                        <p>COMPANY: (주)케이씨샵</p>
+                        <p>OWNER: {{SITE_OWNER}} TEL: {{SITE_OWNER_TEL}}</p>
+                        <p>ADDRESS: {{SITE_ADDRESS}}</p>
+                    </div>
+                </div>
+                <div class="footer-col footer-return">
+                    <div class="footer-block">
+                        <h3 class="footer-title">교환/반품주소</h3>
+                        <p>{{SITE_RETURN_ADDRESS}}</p>
+                    </div>
+                    <div class="footer-block">
+                        <h3 class="footer-title">SNS</h3>
+                        <p class="footer-sns">{{SITE_SNS}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="footer-links">
+                <a href="#">회사소개</a>
+                <a href="#">이용약관</a>
+                <a href="#">개인정보처리방침</a>
+                <a href="#">이용안내</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // file:// 로 열었을 때 안내
+        if (window.location.protocol === 'file:') {
+            document.getElementById('loginMessage').textContent = '서버를 통해 접속해주세요. 터미널에서 "npm start" 실행 후 http://localhost:3000/login 으로 접속하세요.';
+            document.getElementById('loginMessage').className = 'auth-message error';
+        }
+
+        document.getElementById('loginForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const messageEl = document.getElementById('loginMessage');
+
+            const apiBase = window.location.origin;
+            if (apiBase === 'null' || apiBase.startsWith('file:')) {
+                messageEl.textContent = '서버를 통해 접속해주세요. 터미널에서 "npm start" 실행 후 http://localhost:3000/login 으로 접속하세요.';
+                messageEl.className = 'auth-message error';
+                return;
+            }
+
+            try {
+                const res = await fetch(apiBase + '/api/login', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email, password }),
+                    credentials: 'include'
+                });
+                const data = await res.json();
+
+                if (data.success) {
+                    const redirect = new URLSearchParams(location.search).get('redirect');
+                    const isAdmin = String(data.user?.role || '').toLowerCase() === 'admin';
+                    const dest = (redirect && redirect.startsWith(window.location.origin))
+                        ? redirect
+                        : (isAdmin ? apiBase + '/admin' : apiBase + '/');
+                    messageEl.textContent = '이동 중...';
+                    messageEl.className = 'auth-message success';
+                    window.location.replace(dest);
+                } else {
+                    messageEl.textContent = data.message;
+                    messageEl.className = 'auth-message error';
+                }
+            } catch (err) {
+                messageEl.textContent = '서버에 연결할 수 없습니다. 터미널에서 "npm start"로 서버를 실행한 후 http://localhost:3000/login 에서 다시 시도해주세요.';
+                messageEl.className = 'auth-message error';
+            }
+        });
+
+        document.getElementById('btnNaverLogin')?.addEventListener('click', (e) => {
+            e.preventDefault();
+            alert('네이버 로그인은 준비 중입니다.');
+        });
+        document.getElementById('btnKakaoLogin')?.addEventListener('click', (e) => {
+            e.preventDefault();
+            alert('카카오 로그인은 준비 중입니다.');
+        });
+    </script>
+</body>
+</html>

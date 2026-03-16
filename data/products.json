@@ -1,0 +1,12 @@
+[
+  {"id": 1, "name": "★여름기획★ Soft Whisper Blouse", "price": 8500, "originalPrice": 10000, "image": "https://images.unsplash.com/photo-1434389677669-e08b4cac3105?w=800&q=80", "desc": "부드러운 소재의 데일리 블라우스입니다. 반팔티 1+1 이벤트 진행 중!", "tags": "MD추천/주문폭주", "section": "today"},
+  {"id": 2, "name": "★여름기획★ Morning Dow Shirt", "price": 9500, "originalPrice": 10000, "image": "https://images.unsplash.com/photo-1434389677669-e08b4cac3105?w=800&q=80", "desc": "아침 이슬처럼 상큼한 데일리 셔츠입니다. 셔츠 1+1 이벤트!", "tags": "MD추천/주문폭주", "section": "today"},
+  {"id": 3, "name": "★여름기획★ Pure Linen Top", "price": 4750, "originalPrice": 5000, "image": "https://images.unsplash.com/photo-1434389677669-e08b4cac3105?w=800&q=80", "desc": "시원한 착용감의 쿨링 린넨 탑입니다. 린넨 1+1 이벤트!", "tags": "MD추천/주문폭주", "section": "today"},
+  {"id": 4, "name": "Pure Linen Top 1+1 EVENT", "price": 2760, "originalPrice": 6900, "image": "https://images.unsplash.com/photo-1434389677669-e08b4cac3105?w=800&q=80", "desc": "상품설명 이미지의 적용 내용이 표시됩니다. 시원한 린넨 소재로 여름에 최적화된 탑입니다.", "tags": "MD추천/주문폭주", "section": "new"},
+  {"id": 5, "name": "Soft Whisper Blouse 1+1 EVENT", "price": 9500, "originalPrice": 10000, "image": "https://images.unsplash.com/photo-1434389677669-e08b4cac3105?w=800&q=80", "desc": "상품 상세설명 페이지에 적용된 텍스트입니다. 부드러운 소재의 블라우스.", "tags": "MD추천/주문폭주", "section": "new"},
+  {"id": 6, "name": "Morning Dew Shirt 1+1 EVENT", "price": 9500, "originalPrice": 10000, "image": "https://images.unsplash.com/photo-1434389677669-e08b4cac3105?w=800&q=80", "desc": "아침 이슬처럼 상큼한 데일리 셔츠입니다.", "tags": "MD추천/주문폭주", "section": "new"},
+  {"id": 7, "name": "룩 글라이프 S 데일리 오버핏 체크 긴팔 셔츠", "price": 29900, "originalPrice": 39900, "image": "https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=800&q=80", "desc": "데일리하게 착용하기 좋은 오버핏 체크 셔츠입니다. 편안한 착용감과 트렌디한 디자인.", "tags": "베스트", "section": "best"},
+  {"id": 8, "name": "룩 로가느 캐시미어 하찌 카라니트", "price": 44900, "originalPrice": 54900, "image": "https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?w=800&q=80", "desc": "캐시미어 블렌드로 부드럽고 따뜻한 카라 니트입니다.", "tags": "베스트", "section": "best"},
+  {"id": 9, "name": "룩 르베이 513 카치온 다잉 와이드팬츠", "price": 39900, "originalPrice": 49900, "image": "https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?w=800&q=80", "desc": "트렌디한 와이드 핏의 카키 팬츠입니다.", "tags": "베스트", "section": "best"},
+  {"id": 10, "name": "룩 클래식 오버사이즈 데님 자켓", "price": 69900, "originalPrice": 89900, "image": "https://images.unsplash.com/photo-1576566588028-4147f3842f27?w=800&q=80", "desc": "클래식한 오버사이즈 데님 자켓으로 다양한 스타일링이 가능합니다.", "tags": "베스트", "section": "best"}
+]

@@ -1,0 +1,26 @@
+{
+  "name": "kcshop",
+  "version": "1.0.0",
+  "description": "KCSHOP Premium Mall",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "pm2:start": "pm2 start ecosystem.config.js",
+    "pm2:stop": "pm2 stop kcshop",
+    "backup": "bash scripts/backup-db.sh"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "better-sqlite3": "^11.6.0",
+    "connect-sqlite3": "^0.9.16",
+    "dotenv": "^16.3.1",
+    "express": "^4.21.0",
+    "express-rate-limit": "^8.3.1",
+    "express-session": "^1.18.0",
+    "helmet": "^8.1.0",
+    "multer": "^1.4.5-lts.1",
+    "nodemailer": "^6.9.7",
+    "winston": "^3.11.0"
+  }
+}

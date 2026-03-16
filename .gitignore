@@ -1,0 +1,33 @@
+# 환경 변수
+.env
+.env.local
+.env.*.local
+
+# 데이터
+data/*.db
+data/sessions.db
+
+# 업로드 파일
+uploads/*
+!uploads/.gitkeep
+
+# 로그
+logs/
+*.log
+
+# Node
+node_modules/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# 백업
+*.bak
+backups/

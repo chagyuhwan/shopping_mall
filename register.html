@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원가입 - KCSHOP</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+    <link href="auth.css" rel="stylesheet">
+    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+    <style>
+        .register-page .auth-main { align-items: stretch; padding: 0; background: #fff; min-height: auto; }
+        .register-content { max-width: 900px; margin: 0 auto; padding: 48px 24px 80px; }
+        .register-page .auth-title { text-align: left; font-size: 1.75rem; margin-bottom: 36px; padding-bottom: 20px; border-bottom: 2px solid #1a1a1a; }
+        .register-section { margin-bottom: 48px; }
+        .register-section-title { font-size: 1.1rem; font-weight: 600; color: #1a1a1a; margin-bottom: 20px; padding-left: 12px; border-left: 4px solid #1a1a1a; }
+        .register-table { width: 100%; border-collapse: collapse; }
+        .register-table th { width: 140px; padding: 14px 16px; text-align: left; font-weight: 600; font-size: 0.9rem; color: #333; background: #fafafa; border: 1px solid #e8e8e8; vertical-align: middle; }
+        .register-table td { padding: 12px 16px; border: 1px solid #e8e8e8; background: #fff; }
+        .register-table td input { width: 100%; padding: 10px 14px; border: 1px solid #ddd; border-radius: 4px; font-size: 0.95rem; }
+        .register-table td input:focus { outline: none; border-color: #1a1a1a; }
+        .register-table .req-mark { color: #c62828; margin-left: 2px; }
+        .register-row { display: flex; gap: 12px; }
+        .register-row .register-field { flex: 1; }
+        .register-table .register-row .register-field input { width: 100%; }
+        .addr-search-btn { padding: 10px 16px; background: #1a1a1a; color: #fff; border: none; border-radius: 4px; font-size: 0.9rem; font-weight: 500; cursor: pointer; white-space: nowrap; }
+        .addr-search-btn:hover { background: #333; }
+        .agree-all-row { display: flex; align-items: center; gap: 12px; padding: 16px 20px; background: #f5f5f5; border: 1px solid #e0e0e0; margin-bottom: 24px; }
+        .agree-all-row label { font-size: 1rem; font-weight: 500; cursor: pointer; white-space: nowrap; }
+        .agree-all-row input { width: 20px; height: 20px; margin: 0; flex-shrink: 0; }
+        .agree-block { margin-bottom: 28px; }
+        .agree-block:last-of-type { margin-bottom: 0; }
+        .agree-block-title { font-size: 0.95rem; font-weight: 600; margin-bottom: 12px; }
+        .agree-block-title .req { color: #c62828; }
+        .agree-block-title .opt { color: #666; }
+        .agree-terms-box { width: 100%; height: 120px; padding: 16px; border: 1px solid #ddd; background: #fafafa; font-size: 0.85rem; line-height: 1.6; color: #555; overflow-y: auto; resize: none; margin-bottom: 12px; border-radius: 4px; font-family: inherit; }
+        .agree-terms-box:focus { outline: none; border-color: #1a1a1a; }
+        .agree-row { display: flex; align-items: center; gap: 10px; }
+        .agree-row input { width: 18px; height: 18px; margin: 0; }
+        .agree-row .agree-q { font-size: 0.9rem; color: #333; }
+        .agree-row .agree-yn { font-size: 0.9rem; color: #333; cursor: pointer; }
+        .register-page .auth-form .auth-message { margin-top: 8px; margin-bottom: 8px; }
+        .register-page .auth-form .auth-btn { width: 100%; max-width: 240px; margin: 24px auto 0; display: block; padding: 14px 24px; }
+        .register-page .auth-link-text { margin-top: 24px; text-align: center; }
+        @media (max-width: 768px) {
+            .register-content { padding: 32px 20px 60px; }
+            .register-table th { width: 100px; padding: 12px; font-size: 0.85rem; }
+            .register-table td { padding: 12px; }
+            .register-row { flex-direction: column; gap: 8px; }
+            .agree-terms-box { height: 100px; }
+            .agree-row { flex-wrap: wrap; }
+        }
+    </style>
+</head>
+<body class="register-page">
+    <div class="announcement-bar">
+        <div class="announcement-slider">
+            <span>2025 AUTUMN COLLECTION OPEN!</span>
+            <span>NEW 5% PRODUCT</span>
+            <span>SEASON OFF SALE</span>
+        </div>
+    </div>
+
+    <header class="header">
+        <nav class="nav-main">
+            <button class="nav-toggle" type="button" aria-label="메뉴">☰</button>
+            <div class="mobile-menu-backdrop" id="mobileMenuBackdrop"></div>
+            <div class="nav-left" id="navMenu">
+                <button type="button" class="mobile-menu-close" id="mobileMenuClose" aria-label="메뉴 닫기"><img src="images/x.png" alt="닫기"></button>
+                <a href="shop.html?group=best">BEST</a>
+                <div class="nav-dropdown">
+                    <a href="#" class="nav-dropdown-trigger">TOP</a>
+                    <div class="nav-dropdown-menu">
+                        <a href="shop.html?category=반팔%26민소매">반팔&민소매</a>
+                        <a href="shop.html?category=니트%26폴라">니트&폴라</a>
+                        <a href="shop.html?category=맨투맨%26후드">맨투맨&후드</a>
+                        <a href="shop.html?category=셔츠%26남방">셔츠&남방</a>
+                        <a href="shop.html?category=긴팔">긴팔</a>
+                    </div>
+                </div>
+                <div class="nav-dropdown">
+                    <a href="#" class="nav-dropdown-trigger">PANTS</a>
+                    <div class="nav-dropdown-menu">
+                        <a href="shop.html?category=와이드팬츠">와이드팬츠</a>
+                        <a href="shop.html?category=밴딩팬츠">밴딩팬츠</a>
+                        <a href="shop.html?category=슬랙스">슬랙스</a>
+                        <a href="shop.html?category=면바지">면바지</a>
+                    </div>
+                </div>
+                <div class="nav-dropdown">
+                    <a href="#" class="nav-dropdown-trigger">OUTER</a>
+                    <div class="nav-dropdown-menu">
+                        <a href="shop.html?category=자켓">자켓</a>
+                        <a href="shop.html?category=가디건">가디건</a>
+                        <a href="shop.html?category=코트">코트</a>
+                        <a href="shop.html?category=패딩%2F점퍼">패딩/점퍼</a>
+                        <a href="shop.html?category=패딩조끼">패딩조끼</a>
+                    </div>
+                </div>
+            </div>
+            <a href="index.html" class="logo">KCSHOP</a>
+            <div class="nav-right">
+                <a href="login.html" class="nav-desktop-only">LOGIN</a>
+                <a href="mypage.html" class="user-icon" id="userIcon"><img src="images/my.png" alt="마이페이지"></a>
+                <a href="cart.html" class="cart-wrapper"><img src="images/cart.png" alt="장바구니"><span class="cart-count" id="cartCount">0</span></a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="auth-main">
+        <div class="register-content">
+            <h1 class="auth-title">회원가입</h1>
+            <form id="registerForm" class="auth-form">
+                <div class="register-section">
+                    <h2 class="register-section-title">기본정보</h2>
+                    <table class="register-table">
+                        <tbody>
+                            <tr>
+                                <th>아이디<span class="req-mark">*</span></th>
+                                <td><input type="text" id="username" name="username" required placeholder="아이디 입력" autocomplete="username"></td>
+                            </tr>
+                            <tr>
+                                <th>비밀번호<span class="req-mark">*</span></th>
+                                <td>
+                                    <div class="register-row">
+                                        <div class="register-field"><input type="password" id="password" name="password" required minlength="6" placeholder="비밀번호 (6자 이상)" autocomplete="new-password"></div>
+                                        <div class="register-field"><input type="password" id="passwordConfirm" name="passwordConfirm" required placeholder="비밀번호 확인" autocomplete="new-password"></div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>이름<span class="req-mark">*</span></th>
+                                <td><input type="text" id="name" name="name" required placeholder="이름 입력"></td>
+                            </tr>
+                            <tr>
+                                <th>우편번호</th>
+                                <td>
+                                    <div class="register-row" style="max-width: 400px;">
+                                        <div class="register-field" style="flex: 0 0 120px;"><input type="text" id="zipcode" name="zipcode" placeholder="우편번호" readonly></div>
+                                        <button type="button" class="addr-search-btn" id="btnSearchAddress">주소 검색</button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>주소</th>
+                                <td><input type="text" id="address" name="address" placeholder="주소 검색 버튼을 클릭해주세요" readonly></td>
+                            </tr>
+                            <tr>
+                                <th>상세주소</th>
+                                <td><input type="text" id="addressDetail" name="addressDetail" placeholder="상세주소 입력"></td>
+                            </tr>
+                            <tr>
+                                <th>휴대전화</th>
+                                <td><input type="tel" id="phone" name="phone" placeholder="010-0000-0000"></td>
+                            </tr>
+                            <tr>
+                                <th>이메일<span class="req-mark">*</span></th>
+                                <td><input type="email" id="email" name="email" required placeholder="example@email.com"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="register-section">
+                    <h2 class="register-section-title">동의항목</h2>
+                    <div class="agree-all-row">
+                        <input type="checkbox" id="agreeAll">
+                        <label for="agreeAll">이용약관 및 개인정보수집 및 이용, 쇼핑정보 수신(선택)에 모두 동의합니다.</label>
+                    </div>
+
+                    <div class="agree-block">
+                        <div class="agree-block-title"><span class="req">[필수]</span> 이용약관 동의</div>
+                        <textarea class="agree-terms-box" readonly>제1조 (목적)
+이 약관은 KCSHOP(이하 "회사")이 제공하는 서비스의 이용조건 및 절차, 회사와 이용자의 권리, 의무, 책임사항과 기타 필요한 사항을 규정함을 목적으로 합니다.
+
+제2조 (정의)
+1. "서비스"란 회사가 제공하는 인터넷 쇼핑몰 및 관련 제반 서비스를 의미합니다.
+2. "이용자"란 회사에 접속하여 이 약관에 따라 회사가 제공하는 서비스를 받는 회원 및 비회원을 말합니다.
+
+제3조 (약관의 효력 및 변경)
+1. 이 약관은 서비스 화면에 게시하거나 기타의 방법으로 공지함으로써 효력이 발생합니다.
+2. 회사는 필요한 경우 관련 법령을 위배하지 않는 범위에서 이 약관을 변경할 수 있습니다.
+3. 변경된 약관은 공지 후 7일이 경과한 날부터 효력이 발생합니다.</textarea>
+                        <div class="agree-row">
+                            <span class="agree-q">이용약관에 동의하십니까?</span>
+                            <input type="checkbox" id="agreeTerms" name="agreeTerms">
+                            <label for="agreeTerms" class="agree-yn">동의함</label>
+                        </div>
+                    </div>
+
+                    <div class="agree-block">
+                        <div class="agree-block-title"><span class="req">[필수]</span> 개인정보 수집 및 이용 동의</div>
+                        <textarea class="agree-terms-box" readonly>1. 수집하는 개인정보 항목
+- 필수항목: 아이디, 비밀번호, 이름, 이메일, 휴대전화
+- 선택항목: 주소
+
+2. 개인정보의 수집 및 이용목적
+- 회원 가입 및 관리, 서비스 제공, 상담 및 불만 처리
+
+3. 개인정보의 보유 및 이용기간
+- 회원 탈퇴 시까지 보유하며, 관계 법령에 따라 보존할 필요가 있는 경우 해당 기간 동안 보관합니다.
+
+4. 동의를 거부할 권리가 있으며, 거부 시 회원가입이 제한됩니다.</textarea>
+                        <div class="agree-row">
+                            <span class="agree-q">개인정보 수집 및 이용에 동의하십니까?</span>
+                            <input type="checkbox" id="agreePrivacy" name="agreePrivacy">
+                            <label for="agreePrivacy" class="agree-yn">동의함</label>
+                        </div>
+                    </div>
+
+                    <div class="agree-block">
+                        <div class="agree-block-title"><span class="opt">[선택]</span> 쇼핑정보 수신 동의</div>
+                        <textarea class="agree-terms-box" readonly>1. 수신 동의 항목
+- 할인 쿠폰, 이벤트, 신상품 소식 등을 SMS 또는 이메일로 수신
+
+2. 수신 동의 시 제공되는 혜택
+- 회원 전용 할인 쿠폰 및 이벤트 정보를 우선적으로 받아보실 수 있습니다.
+
+3. 동의를 거부하셔도 회원가입 및 서비스 이용에는 제한이 없습니다.
+4. 수신 동의 후에도 언제든지 수신 거부를 요청하실 수 있습니다.</textarea>
+                        <div class="agree-row">
+                            <span class="agree-q">이메일 수신을 동의하십니까?</span>
+                            <input type="checkbox" id="agreeMarketing" name="agreeMarketing">
+                            <label for="agreeMarketing" class="agree-yn">동의함</label>
+                        </div>
+                    </div>
+                </div>
+
+                <p id="registerMessage" class="auth-message"></p>
+                <button type="submit" class="auth-btn">가입하기</button>
+            </form>
+            <p class="auth-link-text">이미 회원이신가요? <a href="login.html">로그인</a></p>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-main">
+            <div class="footer-inner">
+                <div class="footer-col footer-cs">
+                    <div class="footer-block">
+                        <h3 class="footer-title">C/S CENTER</h3>
+                        <p class="footer-tel">T. {{SITE_TEL}}</p>
+                        <p class="footer-hours">{{SITE_HOURS}}</p>
+                    </div>
+                    <div class="footer-block">
+                        <h3 class="footer-title">ACCOUNT</h3>
+                        <p class="footer-depositor">예금주 : (주) KCSHOP</p>
+                        <p class="footer-account">{{SITE_ACCOUNT}}</p>
+                    </div>
+                </div>
+                <div class="footer-col footer-company">
+                    <h2 class="footer-logo">KCSHOP</h2>
+                    <div class="footer-info">
+                        <p>COMPANY: (주)케이씨샵</p>
+                        <p>OWNER: {{SITE_OWNER}} TEL: {{SITE_OWNER_TEL}}</p>
+                        <p>ADDRESS: {{SITE_ADDRESS}}</p>
+                    </div>
+                </div>
+                <div class="footer-col footer-return">
+                    <div class="footer-block">
+                        <h3 class="footer-title">교환/반품주소</h3>
+                        <p>{{SITE_RETURN_ADDRESS}}</p>
+                    </div>
+                    <div class="footer-block">
+                        <h3 class="footer-title">SNS</h3>
+                        <p class="footer-sns">{{SITE_SNS}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="footer-links">
+                <a href="#">회사소개</a>
+                <a href="#">이용약관</a>
+                <a href="#">개인정보처리방침</a>
+                <a href="#">이용안내</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 주소 검색 (다음 우편번호 API)
+        document.getElementById('btnSearchAddress')?.addEventListener('click', function() {
+            new daum.Postcode({
+                oncomplete: function(data) {
+                    document.getElementById('zipcode').value = data.zonecode;
+                    document.getElementById('address').value = data.userSelectedType === 'R' ? data.roadAddress : (data.jibunAddress || data.roadAddress);
+                    document.getElementById('addressDetail').focus();
+                }
+            }).open();
+        });
+
+        // 네비게이션
+        (function() {
+            const navToggle = document.querySelector('.nav-toggle');
+            const navMenu = document.getElementById('navMenu');
+            const backdrop = document.getElementById('mobileMenuBackdrop');
+            function closeMobileMenu() {
+                navMenu?.classList.remove('mobile-open');
+                backdrop?.classList.remove('active');
+                navToggle.textContent = '☰';
+            }
+            navToggle?.addEventListener('click', () => {
+                navMenu?.classList.toggle('mobile-open');
+                backdrop?.classList.toggle('active');
+                navToggle.textContent = navMenu?.classList.contains('mobile-open') ? '✕' : '☰';
+            });
+            backdrop?.addEventListener('click', closeMobileMenu);
+            document.querySelector('.mobile-menu-close')?.addEventListener('click', closeMobileMenu);
+            document.querySelectorAll('.nav-dropdown-trigger').forEach(t => {
+                t.addEventListener('click', (e) => { e.preventDefault(); t.closest('.nav-dropdown')?.classList.toggle('open'); });
+            });
+            navMenu?.querySelectorAll('a:not(.nav-dropdown-trigger)').forEach(link => {
+                link.addEventListener('click', closeMobileMenu);
+            });
+        })();
+        (async function() {
+            try {
+                const r = await fetch('/api/cart/count', { credentials: 'include' });
+                if (r.ok) { const d = await r.json(); document.getElementById('cartCount').textContent = d.count || 0; }
+            } catch (e) {}
+        })();
+
+        // 전체 동의
+        document.getElementById('agreeAll').addEventListener('change', function() {
+            const checked = this.checked;
+            document.getElementById('agreeTerms').checked = checked;
+            document.getElementById('agreePrivacy').checked = checked;
+            document.getElementById('agreeMarketing').checked = checked;
+        });
+        document.querySelectorAll('#agreeTerms, #agreePrivacy, #agreeMarketing').forEach(cb => {
+            cb.addEventListener('change', function() {
+                const all = document.getElementById('agreeAll');
+                const terms = document.getElementById('agreeTerms').checked;
+                const privacy = document.getElementById('agreePrivacy').checked;
+                const marketing = document.getElementById('agreeMarketing').checked;
+                all.checked = terms && privacy && marketing;
+            });
+        });
+
+        document.getElementById('registerForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const password = document.getElementById('password').value;
+            const passwordConfirm = document.getElementById('passwordConfirm').value;
+            const messageEl = document.getElementById('registerMessage');
+
+            if (password !== passwordConfirm) {
+                messageEl.textContent = '비밀번호가 일치하지 않습니다.';
+                messageEl.className = 'auth-message error';
+                return;
+            }
+
+            if (!document.getElementById('agreeTerms').checked || !document.getElementById('agreePrivacy').checked) {
+                messageEl.textContent = '필수 동의 항목에 모두 동의해주세요.';
+                messageEl.className = 'auth-message error';
+                return;
+            }
+
+            const data = {
+                username: document.getElementById('username').value.trim(),
+                password,
+                name: document.getElementById('name').value.trim(),
+                zipcode: document.getElementById('zipcode').value.trim() || null,
+                address: document.getElementById('address').value.trim() || null,
+                addressDetail: document.getElementById('addressDetail').value.trim() || null,
+                phone: document.getElementById('phone').value.trim() || null,
+                email: document.getElementById('email').value.trim(),
+                agreeTerms: document.getElementById('agreeTerms').checked,
+                agreePrivacy: document.getElementById('agreePrivacy').checked,
+                agreeMarketing: document.getElementById('agreeMarketing').checked
+            };
+
+            try {
+                const res = await fetch('/api/register', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data)
+                });
+                const result = await res.json();
+
+                if (result.success) {
+                    messageEl.textContent = result.message + ' 로그인 페이지로 이동합니다.';
+                    messageEl.className = 'auth-message success';
+                    setTimeout(() => {
+                        window.location.href = 'login.html';
+                    }, 1500);
+                } else {
+                    messageEl.textContent = result.message;
+                    messageEl.className = 'auth-message error';
+                }
+            } catch (err) {
+                messageEl.textContent = '네트워크 오류가 발생했습니다.';
+                messageEl.className = 'auth-message error';
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KCSHOP - Premium Mall</title>
+    <meta name="description" content="KCSHOP 프리미엄 쇼핑몰. 2025 가을 컬렉션, 신상품, 베스트 상품을 만나보세요.">
+    <meta property="og:title" content="KCSHOP - Premium Mall">
+    <meta property="og:description" content="KCSHOP 프리미엄 쇼핑몰. 2025 가을 컬렉션, 신상품, 베스트 상품을 만나보세요.">
+    <meta property="og:type" content="website">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+</head>
+<body>
+    <!-- 상단 알림 바 -->
+    <div class="announcement-bar">
+        <div class="announcement-slider">
+            <span>2025 AUTUMN COLLECTION OPEN!</span>
+            <span>NEW 5% PRODUCT</span>
+            <span>SEASON OFF SALE</span>
+            <span>2025 AUTUMN COLLECTION OPEN!</span>
+            <span>NEW 5% PRODUCT</span>
+            <span>SEASON OFF SALE</span>
+            <span>2025 AUTUMN COLLECTION OPEN!</span>
+            <span>NEW 5% PRODUCT</span>
+            <span>SEASON OFF SALE</span>
+        </div>
+    </div>
+
+    <!-- 메인 네비게이션 -->
+    <header class="header">
+        <nav class="nav-main">
+            <button class="nav-toggle" type="button" aria-label="메뉴">☰</button>
+            <div class="mobile-menu-backdrop" id="mobileMenuBackdrop"></div>
+            <div class="nav-left" id="navMenu">
+                <button type="button" class="mobile-menu-close" id="mobileMenuClose" aria-label="메뉴 닫기"><img src="images/x.png" alt="닫기"></button>
+                <a href="shop.html?group=best">BEST</a>
+                <div class="nav-dropdown">
+                    <a href="#" class="nav-dropdown-trigger">TOP</a>
+                    <div class="nav-dropdown-menu">
+                        <a href="shop.html?category=반팔%26민소매">반팔&민소매</a>
+                        <a href="shop.html?category=니트%26폴라">니트&폴라</a>
+                        <a href="shop.html?category=맨투맨%26후드">맨투맨&후드</a>
+                        <a href="shop.html?category=셔츠%26남방">셔츠&남방</a>
+                        <a href="shop.html?category=긴팔">긴팔</a>
+                    </div>
+                </div>
+                <div class="nav-dropdown">
+                    <a href="#" class="nav-dropdown-trigger">PANTS</a>
+                    <div class="nav-dropdown-menu">
+                        <a href="shop.html?category=와이드팬츠">와이드팬츠</a>
+                        <a href="shop.html?category=밴딩팬츠">밴딩팬츠</a>
+                        <a href="shop.html?category=슬랙스">슬랙스</a>
+                        <a href="shop.html?category=면바지">면바지</a>
+                    </div>
+                </div>
+                <div class="nav-dropdown">
+                    <a href="#" class="nav-dropdown-trigger">OUTER</a>
+                    <div class="nav-dropdown-menu">
+                        <a href="shop.html?category=자켓">자켓</a>
+                        <a href="shop.html?category=가디건">가디건</a>
+                        <a href="shop.html?category=코트">코트</a>
+                        <a href="shop.html?category=패딩%2F점퍼">패딩/점퍼</a>
+                        <a href="shop.html?category=패딩조끼">패딩조끼</a>
+                    </div>
+                </div>
+            </div>
+            <div class="logo">KCSHOP</div>
+            <div class="nav-right">
+                <a href="#" id="navLogout" class="nav-desktop-only" style="display: none;">LOGOUT</a>
+                <a href="#" class="find-icon" id="findOpen" aria-label="검색"><img src="images/find.png" alt="검색"></a>
+                <a href="mypage.html" class="user-icon" id="userIcon"><img src="images/my.png" alt="마이페이지"></a>
+                <a href="cart.html" class="cart-wrapper"><img src="images/cart.png" alt="장바구니"><span class="cart-count" id="cartCount">0</span></a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 히어로 섹션 -->
+    <section class="hero">
+        <div class="hero-slider">
+            <div class="hero-slide active">
+                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=1920&q=80" alt="Hero 1">
+            </div>
+            <div class="hero-slide">
+                <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=1920&q=80" alt="Hero 2">
+            </div>
+            <div class="hero-slide">
+                <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=1920&q=80" alt="Hero 3">
+            </div>
+            <div class="hero-slide">
+                <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=1920&q=80" alt="Hero 4">
+            </div>
+        </div>
+
+        <!-- 텍스트 오버레이 -->
+        <div class="hero-overlay">
+            <p>상단 흐르는 배너 배경색상(초록색)은 원하시는 진도로 변경가능합니다.<br>
+            디자인 구매시 다른 계열의 색상으로 변경 요청 가능합니다.<br>
+            *주문 직접 수정가능 (매뉴얼 제공)</p>
+        </div>
+
+        <!-- 슬라이더 화살표 -->
+        <button class="hero-arrow prev" aria-label="이전">‹</button>
+        <button class="hero-arrow next" aria-label="다음">›</button>
+
+        <!-- 슬라이더 인디케이터 -->
+        <div class="hero-indicators">
+            <button class="hero-indicator active" data-index="0" aria-label="슬라이드 1"></button>
+            <button class="hero-indicator" data-index="1" aria-label="슬라이드 2"></button>
+            <button class="hero-indicator" data-index="2" aria-label="슬라이드 3"></button>
+            <button class="hero-indicator" data-index="3" aria-label="슬라이드 4"></button>
+        </div>
+    </section>
+
+    <!-- 검색 모달 -->
+    <div class="search-overlay" id="searchOverlay">
+        <div class="search-modal">
+            <div class="search-header">
+                <input type="text" id="searchInput" class="search-input" placeholder="상품명을 입력하세요" autocomplete="off">
+                <button type="button" class="search-close" id="searchClose" aria-label="닫기">✕</button>
+            </div>
+            <div class="search-results" id="searchResults">
+                <p class="search-placeholder">검색어를 입력해주세요</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 공지사항 팝업 -->
+    <div class="notice-popup-overlay" id="noticePopup" style="display: none;">
+        <div class="notice-popup">
+            <h3 class="notice-popup-title">공지사항</h3>
+            <div class="notice-popup-content">
+                <p>2025 가을 시즌 신규 입고 안내</p>
+                <p>배송 일정 변경 안내 (설 연휴)</p>
+                <p>신규 회원 가입 시 10% 할인 쿠폰 지급</p>
+            </div>
+            <div class="notice-popup-footer">
+                <label class="notice-popup-check">
+                    <input type="checkbox" id="noticeHideToday"> 오늘 하루 안 보기
+                </label>
+                <button type="button" class="notice-popup-close" id="noticePopupClose">닫기</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- TODAY BEST 섹션 (DB 동적 로딩) -->
+    <section class="today-best">
+        <h2 class="section-title">TODAY BEST</h2>
+        <div class="scroll-container">
+            <button class="scroll-btn prev" type="button" aria-label="이전">‹</button>
+            <button class="scroll-btn next" type="button" aria-label="다음">›</button>
+            <div class="scroll-wrapper">
+                <div class="product-grid" id="todayProducts">
+                    <p class="products-loading">상품을 불러오는 중...</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEW ARRIVALS 섹션 (DB 동적 로딩) -->
+    <section class="new-arrivals">
+        <h2 class="section-title">NEW ARRIVALS</h2>
+        <div class="product-grid" id="newProducts">
+            <p class="products-loading">상품을 불러오는 중...</p>
+        </div>
+        <div class="view-more-btn-wrap" id="newViewMoreWrap" style="display: none;">
+            <button type="button" class="view-more-btn" id="viewMoreBtn">VIEW MORE</button>
+            <button type="button" class="view-more-btn view-less-btn" id="viewLessBtn">VIEW LESS</button>
+        </div>
+    </section>
+
+    <!-- KCSHOP BEST 섹션 (DB 동적 로딩) -->
+    <section class="lookple-best">
+        <div class="section-header">
+            <h2 class="section-title">KCSHOP BEST</h2>
+            <p class="section-subtitle">꾸준히 사랑받는 베스트 아이템입니다.</p>
+        </div>
+        <div class="product-grid" id="bestProducts">
+            <p class="products-loading">상품을 불러오는 중...</p>
+        </div>
+        <div class="view-more-btn-wrap" id="bestViewMoreWrap" style="display: none;">
+            <button type="button" class="view-more-btn" id="viewMoreBtnBest">VIEW MORE</button>
+            <button type="button" class="view-more-btn view-less-btn" id="viewLessBtnBest">VIEW LESS</button>
+        </div>
+    </section>
+
+    <!-- 푸터 -->
+    <footer class="footer">
+        <div class="footer-main">
+            <div class="footer-inner">
+                <!-- 왼쪽: 고객센터 & 계좌 -->
+                <div class="footer-col footer-cs">
+                    <div class="footer-block">
+                        <h3 class="footer-title">C/S CENTER</h3>
+                        <p class="footer-tel">T. {{SITE_TEL}}</p>
+                        <p class="footer-hours">{{SITE_HOURS}}</p>
+                    </div>
+                    <div class="footer-block">
+                        <h3 class="footer-title">ACCOUNT</h3>
+                        <p class="footer-depositor">예금주 : (주) KCSHOP</p>
+                        <p class="footer-account">{{SITE_ACCOUNT}}</p>
+                    </div>
+                </div>
+                <!-- 중앙: 회사 정보 -->
+                <div class="footer-col footer-company">
+                    <h2 class="footer-logo">KCSHOP</h2>
+                    <div class="footer-info">
+                        <p>COMPANY: (주)케이씨샵</p>
+                        <p>OWNER: {{SITE_OWNER}} TEL: {{SITE_OWNER_TEL}}</p>
+                        <p>ADDRESS: {{SITE_ADDRESS}}</p>
+                    </div>
+                </div>
+                <!-- 오른쪽: 교환/반품 & SNS -->
+                <div class="footer-col footer-return">
+                    <div class="footer-block">
+                        <h3 class="footer-title">교환/반품주소</h3>
+                        <p>{{SITE_RETURN_ADDRESS}}</p>
+                    </div>
+                    <div class="footer-block">
+                        <h3 class="footer-title">SNS</h3>
+                        <p class="footer-sns">{{SITE_SNS}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="footer-links">
+                <a href="#">회사소개</a>
+                <a href="#">이용약관</a>
+                <a href="#">개인정보처리방침</a>
+                <a href="#">이용안내</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 로그인 상태 확인 및 네비게이션 업데이트
+        (async function() {
+            try {
+                const res = await fetch('/api/me', { credentials: 'include' });
+                const data = await res.json();
+                const navLogout = document.getElementById('navLogout');
+                if (data.success && data.user && navLogout) {
+                    navLogout.style.display = 'inline';
+                    navLogout.href = '#';
+                    navLogout.textContent = 'LOGOUT';
+                }
+            } catch (e) {
+                // API 서버 없을 때 무시
+            }
+        })();
+
+        // 장바구니 개수 로드
+        (async () => {
+            try {
+                const res = await fetch('/api/cart/count', { credentials: 'include' });
+                if (res.ok) {
+                    const d = await res.json();
+                    const el = document.getElementById('cartCount');
+                    if (el) el.textContent = d.count || 0;
+                }
+            } catch (e) {}
+        })();
+
+        async function doLogout(e) {
+            e.preventDefault();
+            try {
+                await fetch('/api/logout', { method: 'POST', credentials: 'include' });
+                window.location.reload();
+            } catch (err) {
+                window.location.reload();
+            }
+        }
+        document.getElementById('navLogout')?.addEventListener('click', doLogout);
+
+        // 상품 DB 동적 로딩
+        (async function loadProducts() {
+            const apiBase = window.location.origin;
+            let products = [];
+            try {
+                const res = await fetch(apiBase + '/api/products');
+                if (res.ok) products = await res.json();
+            } catch (e) {
+                document.querySelectorAll('#todayProducts, #newProducts, #bestProducts').forEach(el => {
+                    if (el) el.innerHTML = '<p class="products-loading" style="color:#999;">상품을 불러올 수 없습니다.</p>';
+                });
+                return;
+            }
+            const today = products.filter(p => (p.section || '').toLowerCase() === 'today');
+            const news = products.filter(p => ((p.section || '').toLowerCase() === 'new') || ((p.section || '') === ''));
+            const best = products.filter(p => (p.section || '').toLowerCase() === 'best');
+
+            function stripHtml(html) {
+                if (!html) return '';
+                return String(html).replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+            }
+            function getBadgeStickers(p) {
+                const badges = [];
+                if (p.badgeNew) badges.push('<span class="product-badge-sticker badge-new">신상품</span>');
+                if (p.badgeBest) badges.push('<span class="product-badge-sticker badge-best">베스트</span>');
+                if (p.badgeMd) badges.push('<span class="product-badge-sticker badge-md">MD추천</span>');
+                if (p.badgeRush) badges.push('<span class="product-badge-sticker badge-rush">주문폭주</span>');
+                if (p.badgeToday) badges.push('<span class="product-badge-sticker badge-today">오늘출발</span>');
+                if (p.badgeLimit) badges.push('<span class="product-badge-sticker badge-limit">한정</span>');
+                return badges.length ? `<span class="product-badge-stickers">${badges.join('')}</span>` : '';
+            }
+            function cardToday(p) {
+                const soldOut = (p.stock ?? 0) <= 0;
+                const imgUrl = p.image ? p.image.replace('w=800', 'w=400') : '';
+                const imgHtml = imgUrl ? `<img src="${imgUrl}" alt="${(p.name || '').replace(/"/g, '&quot;')}">` : '';
+                const imgClass = imgUrl ? 'product-image' : 'product-image placeholder';
+                const tags = (p.tags || '').split('/').filter(Boolean).map(t => `<p class="overlay-tag">${t.trim()}</p>`).join('');
+                const orig = (p.originalPrice || p.original_price) ? `₩${(p.originalPrice || p.original_price).toLocaleString()}` : '';
+                const sale = `₩${(p.price || 0).toLocaleString()}`;
+                const descPlain = stripHtml(p.summary || p.desc || '').slice(0, 80);
+                const badgeHtml = getBadgeStickers(p);
+                return `<a href="product.html?id=${p.id}" class="product-card${soldOut ? ' sold-out' : ''}">
+                    <div class="${imgClass}">${imgHtml}
+                        <div class="product-hover-overlay">
+                            <div class="overlay-title product-name-with-badges"><span class="product-name-text">${(p.name || '').replace(/</g, '&lt;')}</span>${badgeHtml}</div>
+                            <p class="overlay-desc">${descPlain.replace(/</g, '&lt;')}</p>
+                            ${tags}
+                            <div class="overlay-price">${orig ? `<span class="original">${orig}</span>` : ''}<span class="sale">${sale}</span></div>
+                        </div>
+                    </div>
+                </a>`;
+            }
+            function cardGrid(p, extraClass = '') {
+                const soldOut = (p.stock ?? 0) <= 0;
+                const imgUrl = p.image ? p.image.replace('w=800', 'w=400') : '';
+                const imgHtml = imgUrl ? `<img src="${imgUrl}" alt="${(p.name || '').replace(/"/g, '&quot;')}">` : '';
+                const imgClass = imgUrl ? 'product-image' : 'product-image placeholder';
+                const orig = (p.originalPrice || p.original_price) ? `<span class="original-price">₩${(p.originalPrice || p.original_price).toLocaleString()}</span>` : '';
+                const sale = `<span class="sale-price">₩${(p.price || 0).toLocaleString()}</span>`;
+                const descPlain = stripHtml(p.summary || p.desc || '').slice(0, 60);
+                const badgeHtml = getBadgeStickers(p);
+                return `<a href="product.html?id=${p.id}" class="product-card ${extraClass}${soldOut ? ' sold-out' : ''}">
+                    <div class="${imgClass}">${imgHtml}</div>
+                    <div class="product-info">
+                        <div class="product-name product-name-with-badges"><span class="product-name-text">${(p.name || '').replace(/</g, '&lt;')}</span>${badgeHtml}</div>
+                        <div class="price-row">${orig}${sale}</div>
+                        ${descPlain ? `<p class="product-desc">${descPlain.replace(/</g, '&lt;')}</p>` : ''}
+                        ${p.tags ? `<p class="product-tags">${(p.tags || '').replace(/</g, '&lt;')}</p>` : ''}
+                    </div>
+                </a>`;
+            }
+
+            const todayEl = document.getElementById('todayProducts');
+            const newEl = document.getElementById('newProducts');
+            const bestEl = document.getElementById('bestProducts');
+            if (todayEl) todayEl.innerHTML = today.length ? today.map(cardToday).join('') : '<p class="products-loading" style="color:#999;">등록된 상품이 없습니다.</p>';
+            if (newEl) {
+                const newItems = news.map((p, i) => cardGrid(p, i >= 6 ? 'view-more-item' : ''));
+                newEl.innerHTML = newItems.length ? newItems.join('') : '<p class="products-loading" style="color:#999;">등록된 상품이 없습니다.</p>';
+                const newWrap = document.getElementById('newViewMoreWrap');
+                if (newWrap && news.length > 6) newWrap.style.display = 'block';
+            }
+            if (bestEl) {
+                const bestItems = best.map((p, i) => cardGrid(p, i >= 6 ? 'view-more-item' : ''));
+                bestEl.innerHTML = bestItems.length ? bestItems.join('') : '<p class="products-loading" style="color:#999;">등록된 상품이 없습니다.</p>';
+                const bestWrap = document.getElementById('bestViewMoreWrap');
+                if (bestWrap && best.length > 6) bestWrap.style.display = 'block';
+            }
+
+            // VIEW MORE / VIEW LESS
+            const viewMoreBtn = document.getElementById('viewMoreBtn');
+            const viewLessBtn = document.getElementById('viewLessBtn');
+            const viewMoreItems = document.querySelectorAll('.new-arrivals .view-more-item');
+            if (viewMoreBtn && viewLessBtn && viewMoreItems.length) {
+                viewMoreBtn.addEventListener('click', () => {
+                    viewMoreItems.forEach(item => item.classList.add('visible'));
+                    viewMoreBtn.classList.add('hidden');
+                    viewLessBtn.classList.add('visible');
+                });
+                viewLessBtn.addEventListener('click', () => {
+                    viewMoreItems.forEach(item => item.classList.remove('visible'));
+                    viewMoreBtn.classList.remove('hidden');
+                    viewLessBtn.classList.remove('visible');
+                });
+            }
+            const viewMoreBtnBest = document.getElementById('viewMoreBtnBest');
+            const viewLessBtnBest = document.getElementById('viewLessBtnBest');
+            const viewMoreItemsBest = document.querySelectorAll('.lookple-best .view-more-item');
+            if (viewMoreBtnBest && viewLessBtnBest && viewMoreItemsBest.length) {
+                viewMoreBtnBest.addEventListener('click', () => {
+                    viewMoreItemsBest.forEach(item => item.classList.add('visible'));
+                    viewMoreBtnBest.classList.add('hidden');
+                    viewLessBtnBest.classList.add('visible');
+                });
+                viewLessBtnBest.addEventListener('click', () => {
+                    viewMoreItemsBest.forEach(item => item.classList.remove('visible'));
+                    viewMoreBtnBest.classList.remove('hidden');
+                    viewLessBtnBest.classList.remove('visible');
+                });
+            }
+
+            // TODAY BEST 스크롤 (상품 로드 후 초기화)
+            const scrollWrapper = document.querySelector('.today-best .scroll-wrapper');
+            const scrollPrevBtn = document.querySelector('.today-best .scroll-btn.prev');
+            const scrollNextBtn = document.querySelector('.today-best .scroll-btn.next');
+            if (scrollWrapper) {
+                function updateScrollUI() {
+                    const scrollLeft = scrollWrapper.scrollLeft;
+                    const scrollWidth = scrollWrapper.scrollWidth - scrollWrapper.clientWidth;
+                    if (scrollPrevBtn) scrollPrevBtn.disabled = scrollLeft <= 0;
+                    if (scrollNextBtn) scrollNextBtn.disabled = scrollLeft >= scrollWidth - 1;
+                }
+                scrollWrapper.addEventListener('scroll', updateScrollUI);
+                const getScrollAmount = () => {
+                    const card = scrollWrapper.querySelector('.product-card');
+                    return card ? card.offsetWidth + 32 : 400;
+                };
+                if (scrollPrevBtn) scrollPrevBtn.addEventListener('click', () => scrollWrapper.scrollBy({ left: -getScrollAmount(), behavior: 'smooth' }));
+                if (scrollNextBtn) scrollNextBtn.addEventListener('click', () => scrollWrapper.scrollBy({ left: getScrollAmount(), behavior: 'smooth' }));
+                updateScrollUI();
+            }
+        })();
+
+        // 검색 기능 (DB 기반)
+        (function() {
+            const overlay = document.getElementById('searchOverlay');
+            const searchInput = document.getElementById('searchInput');
+            const searchResults = document.getElementById('searchResults');
+            const searchClose = document.getElementById('searchClose');
+            const searchOpen = document.getElementById('searchOpen');
+            const findOpen = document.getElementById('findOpen');
+
+            function openSearch() {
+                overlay.style.display = 'flex';
+                searchInput.value = '';
+                searchResults.innerHTML = '<p class="search-placeholder">검색어를 입력해주세요</p>';
+                setTimeout(() => searchInput.focus(), 100);
+            }
+            function closeSearch() {
+                overlay.style.display = 'none';
+            }
+            function searchProducts(keyword) {
+                if (!keyword.trim()) {
+                    searchResults.innerHTML = '<p class="search-placeholder">검색어를 입력해주세요</p>';
+                    return;
+                }
+                const k = keyword.toLowerCase().trim();
+                searchResults.innerHTML = '<p class="search-placeholder">검색 중...</p>';
+                (async () => {
+                    let products = [];
+                    try {
+                        const res = await fetch('/api/products');
+                        if (res.ok) products = await res.json();
+                    } catch (e) {}
+                    const filtered = products.filter(p => 
+                        p.name.toLowerCase().includes(k) || (p.desc && p.desc.toLowerCase().includes(k))
+                    );
+                    if (filtered.length === 0) {
+                        searchResults.innerHTML = '<p class="search-empty">검색 결과가 없습니다</p>';
+                        return;
+                    }
+                    searchResults.innerHTML = filtered.map(p => {
+                        const soldOut = (p.stock ?? 0) <= 0;
+                        return `<a href="product.html?id=${p.id}" class="search-result-item${soldOut ? ' sold-out' : ''}">
+                            <div class="search-result-img-wrap">
+                                <img src="${p.image}" alt="${p.name}">
+                                ${soldOut ? '<span class="search-result-soldout">SOLD OUT</span>' : ''}
+                            </div>
+                            <div class="search-result-info">
+                                <span class="search-result-name">${p.name}</span>
+                                <span class="search-result-price">₩${(p.price || p.salePrice).toLocaleString()}</span>
+                            </div>
+                        </a>`;
+                    }).join('');
+                })();
+            }
+
+            searchOpen?.addEventListener('click', (e) => { e.preventDefault(); openSearch(); });
+            findOpen?.addEventListener('click', (e) => { e.preventDefault(); openSearch(); });
+            searchClose?.addEventListener('click', closeSearch);
+            overlay?.addEventListener('click', (e) => { if (e.target === overlay) closeSearch(); });
+            searchInput?.addEventListener('input', (e) => searchProducts(e.target.value));
+            searchInput?.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeSearch(); });
+        })();
+
+        // 공지사항 팝업
+        (function() {
+            const popup = document.getElementById('noticePopup');
+            const closeBtn = document.getElementById('noticePopupClose');
+            const hideTodayCheck = document.getElementById('noticeHideToday');
+            const STORAGE_KEY = 'noticeHideDate';
+
+            function getTodayStr() {
+                const d = new Date();
+                return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0');
+            }
+
+            function shouldShowPopup() {
+                const saved = localStorage.getItem(STORAGE_KEY);
+                return saved !== getTodayStr();
+            }
+
+            function closePopup() {
+                if (hideTodayCheck && hideTodayCheck.checked) {
+                    localStorage.setItem(STORAGE_KEY, getTodayStr());
+                }
+                popup.style.display = 'none';
+            }
+
+            if (popup && shouldShowPopup()) {
+                popup.style.display = 'flex';
+            }
+
+            if (closeBtn) closeBtn.addEventListener('click', closePopup);
+            if (popup) {
+                popup.addEventListener('click', function(e) {
+                    if (e.target === popup) closePopup();
+                });
+            }
+        })();
+
+        // 모바일 네비게이션 토글
+        const navToggle = document.querySelector('.nav-toggle');
+        const navMenu = document.getElementById('navMenu');
+        const mobileMenuClose = document.getElementById('mobileMenuClose');
+        const mobileMenuBackdrop = document.getElementById('mobileMenuBackdrop');
+        function closeMobileMenu() {
+            navMenu?.classList.remove('mobile-open');
+            mobileMenuBackdrop?.classList.remove('active');
+            if (navToggle) navToggle.textContent = '☰';
+            document.body.style.overflow = '';
+        }
+        if (navToggle && navMenu) {
+            navToggle.addEventListener('click', () => {
+                const isOpen = navMenu.classList.toggle('mobile-open');
+                mobileMenuBackdrop?.classList.toggle('active', isOpen);
+                navToggle.textContent = isOpen ? '✕' : '☰';
+                document.body.style.overflow = isOpen ? 'hidden' : '';
+            });
+            mobileMenuBackdrop?.addEventListener('click', closeMobileMenu);
+            mobileMenuClose?.addEventListener('click', closeMobileMenu);
+            navMenu.querySelectorAll('.nav-dropdown-trigger').forEach(trigger => {
+                trigger.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    trigger.closest('.nav-dropdown')?.classList.toggle('open');
+                });
+            });
+            navMenu.querySelectorAll('a:not(.nav-dropdown-trigger)').forEach(link => {
+                link.addEventListener('click', closeMobileMenu);
+            });
+        }
+
+        const slides = document.querySelectorAll('.hero-slide');
+        const indicators = document.querySelectorAll('.hero-indicator');
+        const prevBtn = document.querySelector('.hero-arrow.prev');
+        const nextBtn = document.querySelector('.hero-arrow.next');
+        let currentIndex = 0;
+        let autoSlide;
+
+        function showSlide(index) {
+            currentIndex = (index + slides.length) % slides.length;
+            slides.forEach((s, i) => s.classList.toggle('active', i === currentIndex));
+            indicators.forEach((ind, i) => ind.classList.toggle('active', i === currentIndex));
+        }
+
+        function nextSlide() {
+            showSlide(currentIndex + 1);
+            resetAutoSlide();
+        }
+
+        function prevSlide() {
+            showSlide(currentIndex - 1);
+            resetAutoSlide();
+        }
+
+        function resetAutoSlide() {
+            clearInterval(autoSlide);
+            autoSlide = setInterval(nextSlide, 5000);
+        }
+
+        prevBtn.addEventListener('click', prevSlide);
+        nextBtn.addEventListener('click', nextSlide);
+        indicators.forEach((ind, i) => ind.addEventListener('click', () => {
+            showSlide(i);
+            resetAutoSlide();
+        }));
+
+        autoSlide = setInterval(nextSlide, 5000);
+
+    </script>
+</body>
+</html>

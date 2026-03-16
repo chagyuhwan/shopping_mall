@@ -1,0 +1,424 @@
+/* ===== 마이페이지 - 프리미엄 디자인 ===== */
+.header .logo {
+    text-decoration: none;
+    color: #1a1a1a;
+}
+
+.mypage-wrap {
+    width: 100%;
+    margin: 0;
+    padding: 48px 24px 100px;
+    background: #fff;
+    min-height: calc(100vh - 140px);
+}
+
+.mypage-breadcrumb {
+    text-align: right;
+    margin-bottom: 24px;
+    font-size: 0.85rem;
+    color: #999;
+}
+
+.mypage-breadcrumb a {
+    color: #8a8a8a;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.mypage-breadcrumb a:hover {
+    color: #1a1a1a;
+}
+
+.mypage-breadcrumb span {
+    margin: 0 8px;
+    color: #c4c4c4;
+}
+
+.mypage-title {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    text-align: left;
+    margin-bottom: 32px;
+    padding-bottom: 16px;
+    border-bottom: 2px solid #1a1a1a;
+}
+
+/* 회원정보 카드 */
+.mypage-member-box {
+    padding: 32px 0;
+    margin-bottom: 24px;
+    display: flex;
+    gap: 32px;
+    align-items: flex-start;
+    border-bottom: 1px solid #eee;
+}
+
+.mypage-avatar {
+    width: 72px;
+    height: 72px;
+    min-width: 72px;
+    background: #f0f0f0;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #999;
+}
+
+.mypage-member-info {
+    flex: 1;
+}
+
+.mypage-member-greeting {
+    font-size: 1.05rem;
+    color: #333;
+    line-height: 1.8;
+    margin-bottom: 12px;
+}
+
+.mypage-member-greeting strong {
+    color: #1a1a1a;
+}
+
+.mypage-badge {
+    display: inline-block;
+    background: linear-gradient(135deg, #1a1a1a 0%, #3d3d3d 100%);
+    color: white;
+    padding: 3px 12px;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-left: 4px;
+    letter-spacing: 0.5px;
+}
+
+.mypage-member-benefit {
+    font-size: 0.9rem;
+    color: #555;
+    line-height: 1.7;
+    margin-bottom: 6px;
+}
+
+.mypage-member-upgrade {
+    font-size: 0.9rem;
+    color: #555;
+    line-height: 1.7;
+    margin-top: 16px;
+    padding: 14px 18px;
+    background: #faf9f7;
+    border-radius: 10px;
+    border-left: 3px solid #1a1a1a;
+}
+
+.mypage-member-upgrade strong {
+    color: #1a1a1a;
+}
+
+.mypage-member-note {
+    font-size: 0.78rem;
+    color: #999;
+    margin-top: 10px;
+}
+
+/* 적립금/예치금 카드 */
+.mypage-points-box {
+    background: white;
+    border-radius: 16px;
+    padding: 32px 40px;
+    margin-bottom: 28px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+    border: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+.mypage-points-col {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.mypage-points-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.mypage-points-row:last-child {
+    border-bottom: none;
+}
+
+.mypage-points-label {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.mypage-points-value {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #1a1a1a;
+}
+
+.mypage-points-btn {
+    font-size: 0.78rem;
+    padding: 6px 14px;
+    background: #f0f0f0;
+    border: none;
+    border-radius: 6px;
+    color: #555;
+    cursor: pointer;
+    margin-left: 10px;
+    transition: all 0.2s;
+}
+
+.mypage-points-btn:hover {
+    background: #e0e0e0;
+    color: #1a1a1a;
+}
+
+/* 주문처리 현황 - 리모델링 */
+.mypage-order-section {
+    margin-top: 36px;
+}
+
+.mypage-order-header {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 24px;
+}
+
+.mypage-order-title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    letter-spacing: -0.3px;
+}
+
+.mypage-order-period {
+    font-size: 0.8rem;
+    color: #999;
+    font-weight: 400;
+}
+
+.mypage-order-container {
+    padding: 32px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.mypage-order-flow {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+}
+
+.mypage-order-item {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 12px;
+    border-radius: 8px;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.2s ease;
+    min-width: 0;
+}
+
+.mypage-order-item:hover {
+    background: #fafafa;
+}
+
+.mypage-order-item[data-status="deposit"]:hover .mypage-order-icon { color: #6366f1; }
+.mypage-order-item[data-status="prepare"]:hover .mypage-order-icon { color: #3b82f6; }
+.mypage-order-item[data-status="shipping"]:hover .mypage-order-icon { color: #0ea5e9; }
+.mypage-order-item[data-status="done"]:hover .mypage-order-icon { color: #10b981; }
+
+.mypage-order-icon {
+    width: 36px;
+    height: 36px;
+    margin-bottom: 12px;
+    color: #a3a3a3;
+    transition: color 0.25s;
+}
+
+.mypage-order-icon svg {
+    width: 100%;
+    height: 100%;
+}
+
+.mypage-order-count {
+    font-size: 1.75rem;
+    font-weight: 800;
+    color: #1a1a1a;
+    margin-bottom: 4px;
+    letter-spacing: -0.5px;
+}
+
+.mypage-order-label {
+    font-size: 0.8rem;
+    color: #666;
+    font-weight: 500;
+}
+
+.mypage-order-arrow {
+    font-size: 0.9rem;
+    color: #d4d4d4;
+    flex-shrink: 0;
+}
+
+@media (max-width: 900px) {
+    .mypage-order-flow {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .mypage-order-arrow {
+        display: none;
+    }
+    .mypage-order-item {
+        flex: 1 1 calc(25% - 12px);
+        min-width: 100px;
+    }
+}
+
+.mypage-order-divider {
+    height: 1px;
+    background: #eee;
+    margin: 24px 0;
+}
+
+.mypage-order-etc {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+}
+
+.mypage-order-item.etc {
+    flex: none;
+    flex-direction: row;
+    gap: 8px;
+    padding: 14px 20px;
+    background: #fafafa;
+    border-radius: 8px;
+}
+
+.mypage-order-item.etc:hover {
+    background: #f5f5f5;
+}
+
+.mypage-order-item.etc .mypage-order-count {
+    font-size: 1.1rem;
+    margin-bottom: 0;
+}
+
+.mypage-order-item.etc .mypage-order-label {
+    font-size: 0.85rem;
+}
+
+/* 액션 버튼 */
+.mypage-actions {
+    margin-top: 48px;
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+}
+
+.mypage-btn {
+    padding: 14px 32px;
+    border: none;
+    border-radius: 10px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.2s;
+}
+
+.mypage-btn.logout {
+    background: #1a1a1a;
+    color: white;
+}
+
+.mypage-btn.logout:hover {
+    background: #333;
+    transform: translateY(-1px);
+}
+
+.mypage-btn.back {
+    background: white;
+    color: #555;
+    border: 1px solid #e0e0e0;
+}
+
+.mypage-btn.back:hover {
+    background: #f8f8f8;
+    border-color: #d0d0d0;
+    color: #1a1a1a;
+}
+
+.mypage-loading {
+    text-align: center;
+    padding: 100px 20px;
+    color: #999;
+    font-size: 1rem;
+}
+
+@media (max-width: 600px) {
+    .mypage-wrap {
+        padding: 32px 16px 60px;
+    }
+    .mypage-title {
+        font-size: 1.5rem;
+        margin-bottom: 28px;
+    }
+    .mypage-points-box {
+        grid-template-columns: 1fr;
+        padding: 24px 20px;
+    }
+    .mypage-member-box {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 28px 24px;
+    }
+    .mypage-avatar {
+        width: 64px;
+        height: 64px;
+        min-width: 64px;
+    }
+    .mypage-order-container {
+        padding: 24px 16px;
+    }
+    .mypage-order-flow {
+        flex-wrap: wrap;
+        gap: 16px;
+        justify-content: center;
+    }
+    .mypage-order-arrow {
+        display: none;
+    }
+    .mypage-order-item {
+        flex: 1 1 calc(50% - 8px);
+        min-width: 120px;
+        max-width: 160px;
+    }
+    .mypage-order-item.etc {
+        flex: 1 1 auto;
+        min-width: 90px;
+    }
+    .mypage-order-etc {
+        flex-wrap: wrap;
+    }
+    .mypage-actions {
+        flex-direction: column;
+        margin-top: 36px;
+    }
+    .mypage-btn {
+        width: 100%;
+    }
+}
